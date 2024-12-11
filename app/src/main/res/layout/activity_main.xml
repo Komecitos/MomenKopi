@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Garis dekorasi atas -->
+    <View
+        android:id="@+id/topDecoration"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#6F4F28"
+        android:layout_alignParentTop="true" />
+
+    <!-- Logo di tengah -->
+    <LinearLayout
+        android:id="@+id/centerContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/logo" <!-- Tambahkan gambar logo Anda ke drawable -->
+        android:contentDescription="Logo Momen Kopi" />
+
+        <TextView
+            android:id="@+id/appName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Momen Kopi"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#6F4F28"
+            android:layout_marginTop="15dp" />
+    </LinearLayout>
+
+    <!-- Garis dekorasi bawah -->
+    <View
+        android:id="@+id/bottomDecoration"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#6F4F28"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

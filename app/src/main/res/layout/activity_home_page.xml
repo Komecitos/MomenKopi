@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_logo"
+            android:contentDescription="Logo" />
+
+        <!-- Navigasi (Home, Riwayat, Statistik) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tabHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textSize="16sp"
+                android:layout_marginHorizontal="16dp"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tabRiwayat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Riwayat"
+                android:textSize="16sp"
+                android:layout_marginHorizontal="16dp"
+                android:textColor="#888888" />
+
+            <TextView
+                android:id="@+id/tabStatistik"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Statistik"
+                android:textSize="16sp"
+                android:layout_marginHorizontal="16dp"
+                android:textColor="#888888" />
+        </LinearLayout>
+
+        <!-- Tombol Menu -->
+        <ImageButton
+            android:id="@+id/btnMenu"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_menu"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Menu" />
+    </LinearLayout>
+
+    <!-- Search Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="#F5F5F5"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:id="@+id/imgSearchIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_search"
+            android:contentDescription="Search Icon" />
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Search"
+            android:textSize="16sp"
+            android:background="@android:color/transparent"
+            android:padding="8dp"
+            android:inputType="text" />
+    </LinearLayout>
+
+    <!-- GridLayout untuk Produk Kopi -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:padding="16dp"
+            android:rowGap="16dp"
+            android:columnGap="16dp">
+
+            <!-- Item Produk Kopi (Kotak 1) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_columnWeight="1"
+                android:padding="16dp"
+                android:background="#F9F9F9"
+                android:elevation="4dp">
+
+                <ImageView
+                    android:id="@+id/imgKopi1"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_coffee"
+                    android:contentDescription="Kopi"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:id="@+id/tvNamaKopi1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kopi Arabica"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:layout_marginTop="8dp" />
+
+                <TextView
+                    android:id="@+id/tvHargaKopi1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp 25.000"
+                    android:textSize="14sp"
+                    android:textColor="#888888"
+                    android:layout_marginBottom="8dp" />
+
+                <Button
+                    android:id="@+id/btnAddKopi1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Add"
+                    android:textSize="14sp"
+                    android:textColor="#FFFFFF"
+                    android:background="@color/teal_200" />
+            </LinearLayout>
+
+            <!-- Item Produk Kopi (Kotak 2) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_columnWeight="1"
+                android:padding="16dp"
+                android:background="#F9F9F9"
+                android:elevation="4dp">
+
+                <ImageView
+                    android:id="@+id/imgKopi2"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_coffee"
+                    android:contentDescription="Kopi"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:id="@+id/tvNamaKopi2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kopi Robusta"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:layout_marginTop="8dp" />
+
+                <TextView
+                    android:id="@+id/tvHargaKopi2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp 20.000"
+                    android:textSize="14sp"
+                    android:textColor="#888888"
+                    android:layout_marginBottom="8dp" />
+
+                <Button
+                    android:id="@+id/btnAddKopi2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Add"
+                    android:textSize="14sp"
+                    android:textColor="#FFFFFF"
+                    android:background="@color/teal_200" />
+            </LinearLayout>
+
+            <!-- Tambahkan produk lainnya dengan struktur yang sama -->
+
+        </GridLayout>
+    </ScrollView>
+
+    <!-- Button Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        android:background="#FFFFFF"
+        android:layout_marginTop="16dp">
+
+        <!-- TextView untuk Menampilkan Total Harga -->
+        <TextView
+            android:id="@+id/tvTotalHarga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total: Rp 0"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:layout_weight="1" />
+
+        <!-- Button untuk Konfirmasi atau Checkout -->
+        <Button
+            android:id="@+id/btnCheckout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Checkout"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:background="@color/teal_200" />
+    </LinearLayout>
+
+</LinearLayout>
