@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
         masuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, )
+                Intent intent = new Intent(MainActivity.this, Pin.class );
+                startActivity(intent);
             }
         });
 
