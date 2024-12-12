@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="60dp"
     android:gravity="center"
     android:background="@drawable/login_bg">
 
@@ -19,7 +19,7 @@
         android:id="@+id/pin_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="0dp"
         android:background="@android:drawable/edit_text"
         android:hint="Masukkan 6 digit PIN"
         android:inputType="numberPassword"
@@ -30,13 +30,17 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/submit_button"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Kirim"
-        android:textColor="#FFFFFF"
-        android:background="#4CAF50"
-        android:layout_marginTop="20dp"
-        android:textSize="18sp" />
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="200dp"
+        android:background="@drawable/ripple_effect"
+        android:backgroundTint="#9f5f2e"
+        android:elevation="4dp"
+        android:padding="16dp"
+        android:text="Login"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/result_text_view"
