@@ -21,6 +21,7 @@
     <!-- Button -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginButton"
+        android:text="Login"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -28,7 +29,6 @@
         android:backgroundTint="#9f5f2e"
         android:elevation="4dp"
         android:padding="16dp"
-        android:text="Login"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 </LinearLayout>
