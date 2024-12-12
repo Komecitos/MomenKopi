@@ -19,7 +19,7 @@
         android:contentDescription="Logo" />
 
     <!-- Button -->
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginButton"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
