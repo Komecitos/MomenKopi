@@ -1,0 +1,8 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="16dp">
+    <!--  ListView untuk menampilkan item keranjang  -->
+    <ListView android:id="@+id/lvCart" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:divider="@android:color/darker_gray" android:dividerHeight="0.5dp" android:paddingBottom="16dp"/>
+    <!--  Total Harga  -->
+    <TextView android:id="@+id/tvTotalHarga" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Total: Rp 0" android:textSize="18sp" android:textColor="#000000" android:layout_marginBottom="16dp"/>
+    <!--  Button Checkout  -->
+    <Button android:id="@+id/btnCheckout" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Checkout" android:textColor="#FFFFFF" android:background="@android:color/holo_blue_light"/>
+</LinearLayout>
