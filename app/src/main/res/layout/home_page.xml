@@ -1,61 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:orientation="vertical">
 
     <!-- Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
         android:layout_marginTop="20dp"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp">
 
         <ImageView
             android:id="@+id/imgLogo"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:contentDescription="Logo"
-            android:background="@drawable/logo"/>
+            android:background="@drawable/logo"
+            android:contentDescription="Logo" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/tabHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Home"
-                android:textSize="16sp"
                 android:layout_marginHorizontal="16dp"
+                android:text="Home"
                 android:textColor="#000000"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tabRiwayat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Riwayat"
-                android:textSize="16sp"
                 android:layout_marginHorizontal="16dp"
-                android:textColor="#888888" />
+                android:text="Riwayat"
+                android:textColor="#888888"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tabStatistik"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Statistik"
-                android:textSize="16sp"
                 android:layout_marginHorizontal="16dp"
-                android:textColor="#888888" />
+                android:text="Statistik"
+                android:textColor="#888888"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <ImageButton
@@ -70,22 +69,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp"
+        android:layout_marginBottom="16dp"
         android:background="#F5F5F5"
         android:gravity="center_vertical"
-        android:layout_marginBottom="16dp">
+        android:orientation="horizontal"
+        android:padding="8dp">
 
         <EditText
             android:id="@+id/etSearch"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:background="@drawable/search_bar_bg"
             android:hint="Search"
-            android:textSize="16sp"
-            android:padding="8dp"
             android:inputType="text"
-            android:background="@drawable/search_bar_bg" />
+            android:padding="8dp"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <!-- GridLayout untuk Produk Kopi -->
@@ -104,47 +103,47 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_columnWeight="1"
-                android:padding="16dp"
+                android:layout_margin="8dp"
                 android:background="#F9F9F9"
                 android:elevation="4dp"
                 android:gravity="center"
-                android:layout_margin="8dp">
+                android:orientation="vertical"
+                android:padding="16dp">
 
                 <ImageView
                     android:layout_width="154dp"
                     android:layout_height="174dp"
-                    android:padding="16dp"
-                    android:background="@drawable/latte"/>
+                    android:background="@drawable/latte"
+                    android:padding="16dp" />
 
                 <TextView
                     android:id="@+id/tvNamaKopi1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Latte Cofee"
-                    android:textSize="16sp"
-                    android:textColor="#000000"
                     android:layout_marginTop="8dp"
-                    android:textStyle="bold"/>
+                    android:text="Latte Cofee"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvHargaKopi1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
                     android:text="Rp 15.000"
-                    android:textSize="14sp"
                     android:textColor="#888888"
-                    android:layout_marginBottom="8dp" />
+                    android:textSize="14sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnAddKopi1"
                     android:layout_width="120dp"
                     android:layout_height="40dp"
-                    android:text="Add"
                     android:background="@drawable/ripple_effect"
                     android:backgroundTint="#9f5f2e"
                     android:elevation="4dp"
+                    android:text="Add"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -153,13 +152,13 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_columnWeight="1"
-                android:padding="16dp"
+                android:layout_margin="8dp"
                 android:background="#F9F9F9"
                 android:elevation="4dp"
-                android:layout_margin="8dp"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
 
 
                 <ImageView
@@ -172,127 +171,127 @@
                     android:id="@+id/tvNamaKopi2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cappucinno"
-                    android:textSize="16sp"
-                    android:textColor="#000000"
                     android:layout_marginTop="8dp"
-                    android:textStyle="bold"/>
+                    android:text="Cappucinno"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvHargaKopi2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
                     android:text="Rp 18.000"
-                    android:textSize="14sp"
                     android:textColor="#888888"
-                    android:layout_marginBottom="8dp" />
+                    android:textSize="14sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnAddKopi2"
                     android:layout_width="120dp"
                     android:layout_height="40dp"
-                    android:text="Add"
                     android:background="@drawable/ripple_effect"
                     android:backgroundTint="#9f5f2e"
                     android:elevation="4dp"
+                    android:text="Add"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
             </LinearLayout>
 
-<!--            Makanan2-->
+            <!--            Makanan2-->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_columnWeight="1"
-                android:padding="16dp"
+                android:layout_margin="8dp"
                 android:background="#F9F9F9"
                 android:elevation="4dp"
                 android:gravity="center"
-                android:layout_margin="8dp">
+                android:orientation="vertical"
+                android:padding="16dp">
 
                 <ImageView
                     android:layout_width="154dp"
                     android:layout_height="174dp"
-                    android:padding="16dp"
-                    android:background="@drawable/taco"/>
+                    android:background="@drawable/taco"
+                    android:padding="16dp" />
 
                 <TextView
                     android:id="@+id/tvNamaMkn2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Taco"
-                    android:textSize="16sp"
-                    android:textColor="#000000"
                     android:layout_marginTop="8dp"
-                    android:textStyle="bold"/>
+                    android:text="Taco"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvHargaMkn2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
                     android:text="Rp 20.000"
-                    android:textSize="14sp"
                     android:textColor="#888888"
-                    android:layout_marginBottom="8dp" />
+                    android:textSize="14sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnAddMkn2"
                     android:layout_width="120dp"
                     android:layout_height="40dp"
-                    android:text="Add"
                     android:background="@drawable/ripple_effect"
                     android:backgroundTint="#9f5f2e"
                     android:elevation="4dp"
+                    android:text="Add"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
             </LinearLayout>
 
-<!--            Makanan 1-->
+            <!--            Makanan 1-->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_columnWeight="1"
-                android:padding="16dp"
+                android:layout_margin="8dp"
                 android:background="#F9F9F9"
                 android:elevation="4dp"
                 android:gravity="center"
-                android:layout_margin="8dp">
+                android:orientation="vertical"
+                android:padding="16dp">
 
                 <ImageView
                     android:layout_width="154dp"
                     android:layout_height="174dp"
-                    android:padding="16dp"
-                    android:background="@drawable/brownies"/>
+                    android:background="@drawable/brownies"
+                    android:padding="16dp" />
 
                 <TextView
-                    android:id="@+id/tvNamaMkn2"
+                    android:id="@+id/tvNamaMkn1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Brownies Cake"
-                    android:textSize="16sp"
-                    android:textColor="#000000"
                     android:layout_marginTop="8dp"
-                    android:textStyle="bold"/>
+                    android:text="Brownies Cake"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvHargaMkn1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
                     android:text="Rp 18.000"
-                    android:textSize="14sp"
                     android:textColor="#888888"
-                    android:layout_marginBottom="8dp" />
+                    android:textSize="14sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnAddMkn1"
                     android:layout_width="120dp"
                     android:layout_height="40dp"
-                    android:text="Add"
                     android:background="@drawable/ripple_effect"
                     android:backgroundTint="#9f5f2e"
                     android:elevation="4dp"
+                    android:text="Add"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -303,45 +302,209 @@
         </GridLayout>
     </ScrollView>
 
-    <!-- Popup Price Section (Permanen di bawah) -->
-    <!-- Popup Price Section (Hidden by Default) -->
+    <!-- Popup Price Section (Mengambang di Tengah) -->
+
     <LinearLayout
         android:id="@+id/popupPriceLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        android:background="@drawable/popup_background"
-        android:gravity="center_vertical"
-        android:layout_margin="16dp"
-        android:visibility="gone"> <!-- Hidden by default -->
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="200dp"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        android:orientation="vertical"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:padding="16dp"
+        android:visibility="gone">
 
+        <!-- Gambar Produk -->
+        <ImageView
+            android:id="@+id/imgPopupItem"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/latte" />
+
+        <!-- Nama Item -->
+        <TextView
+            android:id="@+id/tvPopupItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <!-- Harga Item -->
         <TextView
             android:id="@+id/tvPopupPrice"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Item: Rp 0"
+            android:layout_marginTop="8dp"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+
+        <!-- Pilihan Suhu (Panas atau Dingin) -->
+        <RadioGroup
+            android:id="@+id/radioGroupSuhu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvPopupTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Suhu: -"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="" />
+
+
+            <RadioButton
+                android:id="@+id/radioPanas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Panas"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle=""/>
+
+            <RadioButton
+                android:id="@+id/radioDingin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dingin"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle=""/>
+        </RadioGroup>
+
+        <!-- Input Jumlah Item -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jumlah: "
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+
+            <!-- Button to decrease item count -->
+            <Button
+                android:id="@+id/btn_decrease"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="Drecrease item count"
+                android:src="@mipmap/decrease_foreground" />
+
+            <!-- TextView to display current count -->
+            <TextView
+                android:id="@+id/etQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:gravity="center"
+                android:textStyle="bold"/>
+
+            <!-- Button to increase item count -->
+            <Button
+                android:id="@+id/btn_increase"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="Increase item count"
+                android:src="@drawable/plus"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+        <!-- LinearLayout for Cancel and Add buttons in one row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- Cancel Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/ripple_effect"
+                android:backgroundTint="#E91E63"
+                android:elevation="4dp"
+                android:padding="16dp"
+                android:text="Cancel"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <!-- Add to Order Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAddToOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_effect"
+                android:backgroundTint="#9f5f2e"
+                android:elevation="4dp"
+                android:padding="16dp"
+                android:text="Add to Order"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Popup untuk Melanjutkan ke Pembayaran, hanya jika suhu dipilih -->
+    <LinearLayout
+        android:id="@+id/popupCheckoutLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone"
+        android:layout_marginBottom="80dp">
+
+        <TextView
+            android:id="@+id/tvCheckoutPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Total Harga: Rp 0"
+            android:textColor="#000000"
             android:textSize="16sp"
-            android:textColor="#000000" />
+            android:textStyle="bold"/>
 
-        <Button
-            android:id="@+id/btnProceed"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnProceedToPayment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Proceed"
-            android:textSize="14sp"
-            android:textColor="#FFFFFF"
-            android:background="@android:color/holo_blue_dark" />
+            android:background="@drawable/ripple_effect"
+            android:backgroundTint="#9f5f2e"
+            android:elevation="4dp"
+            android:padding="16dp"
+            android:text="Lanjut ke Pembayaran"
+            android:textColor="#FFFFFF" />
 
-        <Button
-            android:id="@+id/btnClosePopup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Close"
-            android:textSize="14sp"
-            android:textColor="#FFFFFF"
-            android:background="@android:color/holo_red_light" />
     </LinearLayout>
 
 
