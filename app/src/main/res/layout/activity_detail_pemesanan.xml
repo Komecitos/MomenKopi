@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:padding="30dp"
+    android:paddingBottom="0dp"
+    tools:context=".DetailPemesananActivity">
+
+    <!-- TextView untuk menampilkan item yang dipesan -->
+    <TextView
+        android:id="@+id/tvOrderedItems"
+        android:layout_width="0dp"
+        android:layout_marginTop="80dp"
+        android:layout_height="wrap_content"
+        android:text="Ordered Items will appear here"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:lineSpacingExtra="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- TextView untuk menampilkan total harga -->
+    <TextView
+        android:id="@+id/tvTotalPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Harga: Rp 0"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#2c3e50"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvOrderedItems"/>
+
+    <!-- RadioGroup untuk memilih metode pembayaran -->
+    <RadioGroup
+        android:id="@+id/radioGroupPayment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTotalPrice"
+        android:layout_marginTop="16dp">
+
+        <RadioButton
+            android:id="@+id/rbTransfer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transfer Bank"
+            android:textColor="#34495e"
+            android:layout_marginEnd="16dp"
+            android:buttonTint="#3498db" />
+
+        <RadioButton
+            android:id="@+id/rbCOD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cash on Delivery"
+            android:textColor="#34495e"
+            android:buttonTint="#3498db" />
+    </RadioGroup>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupPayment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="nomor whatsapp"
+            android:inputType="phone"
+            android:textAlignment="center"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <!-- Button untuk submit order -->
+    <Button
+        android:id="@+id/btnSubmitOrder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Submit Order"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#3498db"
+        android:textSize="16sp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupPayment"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
