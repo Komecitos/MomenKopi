@@ -9,12 +9,15 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DetailPemesananActivity extends AppCompatActivity {
 
@@ -34,6 +37,7 @@ public class DetailPemesananActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_pemesanan);
+        EdgeToEdge.enable(this);
 
         // Initialize views
         tvOrderedItems = findViewById(R.id.tvOrderedItems);
@@ -62,8 +66,10 @@ public class DetailPemesananActivity extends AppCompatActivity {
             String temperature = orderedTemperatures.get(i);
             int quantity = orderedQuantities.get(i);
             int price = orderedPrices.get(i);
-            itemsText.append(item).append(" (").append(temperature).append("), Quantity: ")
-                    .append(quantity).append(", Harga: Rp ").append(price).append("\n");
+            itemsText.append(String.format("%s:\n", item))
+                    .append(String.format("    Jenis   : %s\n", temperature))
+                    .append(String.format("    Jumlah  : %d\n", quantity))
+                    .append(String.format("    Total harga: Rp %,.0f\n\n", (double) price * quantity));
         }
 
         // Set the data into the views
@@ -89,7 +95,7 @@ public class DetailPemesananActivity extends AppCompatActivity {
                     Toast.makeText(DetailPemesananActivity.this, "Please select a payment method.", Toast.LENGTH_SHORT).show();
                 } else {
                     // Get the selected payment method
-                    String paymentMethod = selectedPaymentId == R.id.rbTransfer ? "Transfer Bank" : "Cash on Delivery";
+                    String paymentMethod = selectedPaymentId == R.id.rbTransfer ? "QRIS" : "Tunai";
 
                     // Save order into database
                     dbManager.open();
@@ -125,16 +131,34 @@ public class DetailPemesananActivity extends AppCompatActivity {
 
                     // Creating receipt message for WhatsApp
                     StringBuilder receiptText = new StringBuilder();
+
+                    receiptText.append("-------Momen Kopi-------------\n");
+                    receiptText.append("==============================\n");
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                    String currentDateandTime = sdf.format(new Date());
+                    receiptText.append("Tanggal: ").append(currentDateandTime).append("\n");
+                    receiptText.append("==============================\n");
+
                     for (int i = 0; i < orderedItems.size(); i++) {
                         String item = orderedItems.get(i);
                         String temperature = orderedTemperatures.get(i);
                         int quantity = orderedQuantities.get(i);
                         int price = orderedPrices.get(i);
-                        receiptText.append(item).append(" (").append(temperature).append("), Quantity: ")
-                                .append(quantity).append(", Harga: Rp ").append(price).append("\n");
+
+                        receiptText.append(String.format("%s (%s)\n", item, temperature))
+                                .append(String.format("Quantity: %d\n", quantity))
+                                .append(String.format("Harga: Rp %d\n", price))
+                                .append("--------------------------------\n");
                     }
-                    receiptText.append("Total Harga: Rp ").append(totalPrice).append("\n");
-                    receiptText.append("Metode Pembayaran: ").append(paymentMethod);
+
+                    receiptText.append("================================\n");
+                    receiptText.append(String.format("Total Harga: Rp %d\n", totalPrice));
+                    receiptText.append("Metode Pembayaran: ").append(paymentMethod).append("\n");
+
+                    receiptText.append("================================\n");
+                    receiptText.append("Terima kasih telah memesan di Momen Kopi!\n");
+                    receiptText.append("Silakan kunjungi kami lagi!\n");
 
                     // Modify phone number if needed (for Indonesian users)
                     if (!phoneNumber.startsWith("+62")) {

@@ -402,7 +402,7 @@
 
 
             <!-- Button to decrease item count -->
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_decrease"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -421,7 +421,7 @@
                 android:textStyle="bold"/>
 
             <!-- Button to increase item count -->
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_increase"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
