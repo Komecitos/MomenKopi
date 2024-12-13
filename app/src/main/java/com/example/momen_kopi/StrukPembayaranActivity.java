@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class StrukPembayaranActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_struk_pembayaran);
+        EdgeToEdge.enable(this);
 
         // Initialize views
         tvOrderedItemsDetails = findViewById(R.id.tvOrderedItemsDetails);
@@ -41,8 +43,9 @@ public class StrukPembayaranActivity extends AppCompatActivity {
             String temperature = orderedTemperatures.get(i);
             int quantity = orderedQuantities.get(i);
             int price = orderedPrices.get(i);
-            itemsText.append(item).append(" (").append(temperature).append("), Quantity: ")
-                    .append(quantity).append(", Harga: Rp ").append(price).append("\n");
+            itemsText.append(item).append(" (").append(temperature).append(")\n")
+                    .append("Quantity: ").append(quantity).append("\n")
+                    .append("Harga: Rp ").append(price).append("\n\n");
         }
 
         // Set the data into the views

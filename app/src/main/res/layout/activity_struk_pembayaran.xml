@@ -4,12 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
     android:padding="16dp"
+    android:background="@drawable/login_bg"
     tools:context=".StrukPembayaranActivity">
 
     <!-- Title TextView -->
     <TextView
         android:id="@+id/tvReceiptTitle"
+        android:textColor="#000000"
+        android:layout_marginTop="250dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Receipt"
@@ -24,7 +29,9 @@
     <!-- Display Ordered Items -->
     <TextView
         android:id="@+id/tvOrderedItemsDetails"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
+        android:textColor="#000000"
+        android:layout_marginLeft="110dp"
         android:layout_height="wrap_content"
         android:text="Items will be shown here"
         android:textSize="16sp"
@@ -35,6 +42,7 @@
     <!-- Display Total Price -->
     <TextView
         android:id="@+id/tvTotalPriceDetail"
+        android:textColor="#000000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Total Price: Rp 0"
@@ -48,6 +56,7 @@
     <!-- Display Payment Method -->
     <TextView
         android:id="@+id/tvPaymentMethod"
+        android:textColor="#000000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Payment Method: "
@@ -60,8 +69,8 @@
     <!-- Go Back Button -->
     <Button
         android:id="@+id/btnBackToHome"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:text="Back to Home"
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"

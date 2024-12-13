@@ -51,7 +51,7 @@
             android:id="@+id/rbTransfer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Transfer Bank"
+            android:text="QRIS"
             android:textColor="#34495e"
             android:layout_marginEnd="16dp"
             android:buttonTint="#3498db" />
@@ -60,7 +60,7 @@
             android:id="@+id/rbCOD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cash on Delivery"
+            android:text="Tunai"
             android:textColor="#34495e"
             android:buttonTint="#3498db" />
     </RadioGroup>
@@ -76,6 +76,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPhoneNumber"
+            android:textColor="#000000"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="nomor whatsapp"
