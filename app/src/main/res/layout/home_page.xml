@@ -404,11 +404,9 @@
             <!-- Button to decrease item count -->
             <Button
                 android:id="@+id/btn_decrease"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="?attr/selectableItemBackground"
-                android:contentDescription="Drecrease item count"
-                android:src="@mipmap/decrease_foreground" />
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/delete" />
 
             <!-- TextView to display current count -->
             <TextView
@@ -425,11 +423,9 @@
             <!-- Button to increase item count -->
             <Button
                 android:id="@+id/btn_increase"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="?attr/selectableItemBackground"
-                android:contentDescription="Increase item count"
-                android:src="@drawable/plus"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/plus"
                 android:textSize="10dp" />
         </LinearLayout>
 

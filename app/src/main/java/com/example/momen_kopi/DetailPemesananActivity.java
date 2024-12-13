@@ -9,7 +9,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -29,11 +28,12 @@ public class DetailPemesananActivity extends AppCompatActivity {
     private TextInputLayout tilPhoneNumber;
     private TextInputEditText etPhoneNumber;
 
+    private DBManager dbManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_pemesanan);
-        EdgeToEdge.enable(this);
 
         // Initialize views
         tvOrderedItems = findViewById(R.id.tvOrderedItems);
@@ -44,8 +44,10 @@ public class DetailPemesananActivity extends AppCompatActivity {
         tilPhoneNumber = findViewById(R.id.tilPhoneNumber);
         etPhoneNumber = findViewById(R.id.etPhoneNumber);
 
+        // Initialize DBManager
+        dbManager = new DBManager(this);
 
-        // Get the data passed from previous activity
+        // Get the data passed from the previous activity
         Intent intent = getIntent();
         orderedItems = intent.getStringArrayListExtra("orderedItems");
         orderedTemperatures = intent.getStringArrayListExtra("orderedTemperatures");
@@ -60,9 +62,8 @@ public class DetailPemesananActivity extends AppCompatActivity {
             String temperature = orderedTemperatures.get(i);
             int quantity = orderedQuantities.get(i);
             int price = orderedPrices.get(i);
-            itemsText.append(item).append(" (").append(temperature).append("), Quantity: \n");
-            itemsText.append(quantity).append(", Harga: Rp \n");
-            itemsText.append(price).append("\n");
+            itemsText.append(item).append(" (").append(temperature).append("), Quantity: ")
+                    .append(quantity).append(", Harga: Rp ").append(price).append("\n");
         }
 
         // Set the data into the views
@@ -73,7 +74,7 @@ public class DetailPemesananActivity extends AppCompatActivity {
         btnSubmitOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Pastikan nomor telepon diisi
+                // Ensure phone number is entered
                 String phoneNumber = etPhoneNumber.getText().toString().trim();
 
                 if (phoneNumber.isEmpty()) {
@@ -81,16 +82,33 @@ public class DetailPemesananActivity extends AppCompatActivity {
                     return; // exit the method if validation fails
                 }
 
-                // Pastikan metode pembayaran dipilih
+                // Ensure a payment method is selected
                 int selectedPaymentId = radioGroupPayment.getCheckedRadioButtonId();
 
                 if (selectedPaymentId == -1) {
                     Toast.makeText(DetailPemesananActivity.this, "Please select a payment method.", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Ambil metode pembayaran yang dipilih
+                    // Get the selected payment method
                     String paymentMethod = selectedPaymentId == R.id.rbTransfer ? "Transfer Bank" : "Cash on Delivery";
 
-                    // Buat intent untuk mengirim data ke aktivitas berikutnya (StrukPembayaranActivity)
+                    // Save order into database
+                    dbManager.open();
+                    long result = dbManager.insertOrder(phoneNumber,
+                            String.join(", ", orderedItems),  // Join ordered items as a single string
+                            String.join(", ", orderedTemperatures),
+                            orderedQuantities.toString(),  // Convert list to string
+                            orderedPrices.toString(),
+                            totalPrice,
+                            paymentMethod);
+                    dbManager.close();
+
+                    if (result != -1) {
+                        Toast.makeText(DetailPemesananActivity.this, "Order successfully saved!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(DetailPemesananActivity.this, "Failed to save order.", Toast.LENGTH_SHORT).show();
+                    }
+
+                    // Create intent to send data to the next activity (StrukPembayaranActivity)
                     Intent intent2 = new Intent(DetailPemesananActivity.this, StrukPembayaranActivity.class);
 
                     // Pass the ordered items and other details
@@ -105,34 +123,33 @@ public class DetailPemesananActivity extends AppCompatActivity {
                     // Start the StrukPembayaranActivity
                     startActivity(intent2);
 
-                    // Mempersiapkan pesan struk
+                    // Creating receipt message for WhatsApp
                     StringBuilder receiptText = new StringBuilder();
                     for (int i = 0; i < orderedItems.size(); i++) {
                         String item = orderedItems.get(i);
                         String temperature = orderedTemperatures.get(i);
                         int quantity = orderedQuantities.get(i);
                         int price = orderedPrices.get(i);
-                        receiptText.append(item).append(" (").append(temperature).append("), Quantity: ").append(quantity).append(", Harga: Rp ").append(price).append("\n");
+                        receiptText.append(item).append(" (").append(temperature).append("), Quantity: ")
+                                .append(quantity).append(", Harga: Rp ").append(price).append("\n");
                     }
                     receiptText.append("Total Harga: Rp ").append(totalPrice).append("\n");
                     receiptText.append("Metode Pembayaran: ").append(paymentMethod);
 
-                    // Pastikan nomor telepon dimulai dengan +62 jika belum ada
+                    // Modify phone number if needed (for Indonesian users)
                     if (!phoneNumber.startsWith("+62")) {
-                        phoneNumber = "+62" + phoneNumber.replaceFirst("^0", ""); // Menambahkan +62 di depan nomor telepon
+                        phoneNumber = "+62" + phoneNumber.replaceFirst("^0", "");
                     }
 
-                    // Kirim struk ke WhatsApp
-                    String strukMessage = receiptText.toString();
-                    String url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + Uri.encode(strukMessage);
+                    // WhatsApp URL to send order confirmation
+                    String strukMessage = Uri.encode(receiptText.toString());
+                    String url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + strukMessage;
 
+                    // Open WhatsApp with the confirmation message
                     Intent sendIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                    startActivity(sendIntent); // Mulai WhatsApp untuk mengirim pesan
+                    startActivity(sendIntent);
                 }
             }
         });
-
-
-
     }
 }
